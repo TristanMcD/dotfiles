@@ -2,6 +2,8 @@ set nocompatible
 
 filetype plugin indent on
 
+set hidden
+
 set backspace=indent,eol,start
 set history=1024
 set number
