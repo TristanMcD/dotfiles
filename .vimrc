@@ -42,10 +42,17 @@ hi clear SignColumn
 
 nnoremap <silent> <c-_> :let @/=""<CR>
 
+set dir=$HOME/.vim/tmp/swap
+if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
 
 
 
 execute pathogen#infect()
+
+" CtrlP
+let g:ctrlp_custom_ignore = {
+    \ 'dir': 'vendor$\|node_modules$\|\.git$'
+    \ }
 
 " Solarized Color Scheme
 syntax enable
@@ -70,10 +77,10 @@ augroup mySyntastic
 augroup END
 
 " Easy Tags
-set tags=./tags;,~/.vimtags
+set tags=~/.vimtags
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
+let g:easytags_dynamic_files = 1
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_ctags_warning = 1
 
